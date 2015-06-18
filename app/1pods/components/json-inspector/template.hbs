@@ -1,25 +1,12 @@
 
-{{log 'inspectThis' inspectThis isObject}}
-
-{{! //@TODO  DRY... }}
-{{#if isObject}}
-    <div layout="column">
-        <div {{action doIt}}> {</div>
-            {{json-inspector-object jiObject=inspectThis propertyPath='$yourVar' updatePath="updatePath"}}
-        <div> }</div>
-    </div>
+{{#if metaObj.isObject }}
+    {{json-inspector-object jiObject=metaObj.inspectObj path=metaObj.path isLast=isLast}}
 {{/if}}
 
-{{#if isArray }}
-    [
-      {{json-inspector-array  jiArray=inspectThis propertyPath='$yourVar' updatePath="updatePath"}}
-    ]
+{{#if metaObj.isArray }}
+    {{json-inspector-array  jiArray=metaObj.inspectObj path=metaObj.path isLast=isLast}}
 {{/if}}
 
-{{#if isPrimitive}}
-  <div class="jiVal" {{action updatePath '$yourVar'}}>
-      {{ inspectThis }}
-  </div>
+{{#if metaObj.isPrimitive}}
+  {{json-inspector-primitive jiPrimitive=metaObj.inspectObj path=metaObj.path isLast=isLast}}
 {{/if}}
-
-{{!yield}}

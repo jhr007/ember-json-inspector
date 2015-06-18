@@ -9,16 +9,28 @@ export default Ember.Component.extend({
     }
   },
 
-  isArray: function () {
-    return Ember.typeOf( this.get('inspectThis')) === 'array'
+  init: function () {
+    if ( this.get('isLast') === undefined ) {
+      this.set('isLast', true);
+    }
+
+    this._super();
+  },
+
+  metaObj: function () {
+    var inspectThis = this.get('inspectThis');
+    var type = Ember.typeOf(inspectThis);
+
+    var metaObj = {
+      inspectObj: inspectThis,
+      path: this.get('path') || 'yourVar',
+      isArray: type === 'array',
+      isObject: type === 'object',
+      isPrimitive: (type === 'string') || (type === 'number') || (type === 'boolean')
+    };
+
+    return metaObj;
+
   }.property('inspectThis'),
 
-  isObject: function () {
-    return Ember.typeOf( this.get('inspectThis')) === 'object'
-  }.property('inspectThis'),
-
-  isPrimitive: function () {
-    var obj = this.get('inspectThis');
-    return ( (Ember.typeOf( obj ) !== 'array') && ( Ember.typeOf( obj ) !== 'object') ); 
-  }.property('inspectThis'),
 });

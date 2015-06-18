@@ -8,12 +8,18 @@ export default Ember.Component.extend({
     }
   },
 
-    arrayedObj: function () {
-//    return [{key:'woot',val:'val'}];
-    //tod
+  /*
+  init: function () {
+    console.log('json-ispector-object: isLast', this.get('isLast') );
+    this._super();
+  },
+  //*/
+
+  arrayedObj: function () {
+
     var obj = this.get('jiObject');
     var keys = Object.keys(obj);
-    var thisPath = this.get('propertyPath');
+    var thisPath = this.get('path');
 
 // @todo settings.sort
 //    if ( settings.sort )
@@ -28,33 +34,11 @@ export default Ember.Component.extend({
         //@todo dot notation?
         path: thisPath + '[\''+key+'\']'
       };
-
-      // metadata about the key
-      var typeOf = Ember.typeOf( newObj.val )
-      if ( typeOf === 'array') {
-        newObj.isArray = true;
-      }
-      else if ( typeOf === 'object') {
-        newObj.isObject = true;
-      }
-      else if ( typeOf === 'string') {
-        newObj.isString = true;
-      }
-      else if (( typeOf === 'number') || ( typeOf === 'boolean')) {
-        newObj.isNumber = true;
-      }
-      else {
-        if (newObj.val !== "") {
-          throw new Error('LOL!! What is this?', typeOf );
-        }
-//         newObj.isPrimitive = true;
-      }
-
-//       vals.push(newObj);
-        return newObj;
+      return newObj;
     });
 
     return vals;
+
   }.property('jiObject'),
 //*/
 });

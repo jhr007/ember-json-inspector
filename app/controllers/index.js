@@ -16,7 +16,8 @@ export default Ember.Controller.extend({
     
     var initObj = {
       uberAlles: [0,1,2,3],
-      uberAlles: [0,1,2,3],
+      uberAllesUber: [0,1,2,3],
+      uberAllesUberAlles: [[0,1,2,3],[0,1,2,3],[0,1,2,3],[0,1,2,3]],
       keyone: 'soeme value',
       keytwo: 'woot',
       isAwesome: true,
@@ -37,35 +38,39 @@ export default Ember.Controller.extend({
         }]
       }
     };
+
+
+    initObj = {
+      'Ember': [
+        'J',
+        5,
+        0,
+        'N',
+        {'Inspector':true}
+        ]
+    };
+
     var str = JSON.stringify(initObj);
 
     this.set('jsontext', str);
-    //'{"keyone":"soeme value","keytwo":"woot","alfred":123123,"batman":{"name":"bruce wayne","butler":"alfred","team":"badasses","car":{"name":"batmobile","wheels":4}}}');
   },
 
-
-  //jsonError: false,
-  //jsonErrorMessage: 'Enter some JSON below',
-
   jsonObj: function() {
-//    var jsonstr = this.get('jsontext');
-//    console.log('jsontext',jsonstr);
-//    console.log('jsontextasdfasdf');
-//    return 'test';
-    console.log( 'jsontext', this.get('jsontext') );
+
     try {
       var jsonstr = this.get('jsontext');
       var tempObj = JSON.parse(jsonstr);
-      this.set('jsonError',false);
+      this.set('jsonError', false);
       return tempObj;
     }
     catch (e) {
-      console.log('Array');
       this.set('jsonError', true);
       this.set('jsonErrorMessage', e);
       return {};
     }
-    console.log('Got to end');
+
+    throw new Error('Not sure how I got here');
+
   }.property('jsontext')
 
 });

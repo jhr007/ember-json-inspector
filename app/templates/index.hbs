@@ -4,11 +4,9 @@
       {{jsonErrorMessage}}
     </div>
 {{/if}}
+
 <div>
 </div>
-{{!jsontext}}
-
-{{!jsonObj}}
 
 <div layout="row">
     <div flex="{{jsonBoxWidth}}">
@@ -23,14 +21,13 @@
       -->
     <div flex="5">
     </div>
+
     <div layout="column" flex>
         <div >
-          {{input value=propertyPath layout-fill=""}}
+            {{input value=propertyPath layout-fill=""}}
         </div>
         <div class="md-whiteframe-z2" layout-fill layout-padding>
-          {{log 'jsonObj' jsonObj }}
-          {{json-inspector inspectThis=jsonObj updatePath="updatePath"}}
-          {{!json-inspector inspectThis=jsonObj value=selectedjson}}
+            {{json-inspector inspectThis=jsonObj updatePath="updatePath"}}
         </div>
     </div>
 </div>
