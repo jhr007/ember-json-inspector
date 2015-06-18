@@ -1,0 +1,49 @@
+{{!log 'jiObject' jiObject}}
+{{!log 'arrayedObj' arrayedObj}}
+
+{{!--
+   ____    ____         _   ______    _____   _______
+  / __ \  |  _ \       | | |  ____|  / ____| |__   __|
+ | |  | | | |_) |      | | | |__    | |         | |
+ | |  | | |  _ <   _   | | |  __|   | |         | |
+ | |__| | | |_) | | |__| | | |____  | |____     | |
+  \____/  |____/   \____/  |______|  \_____|    |_|
+
+  --}}
+{{#each arrayedObj as |obj|}}
+
+    {{!log 'jio' this content}}
+
+    <div layout="row" class="jiRow">
+        <div><span class="jiKey" {{action 'updatePath' obj.path}}>"{{obj.key}}":&nbsp;</span></div>
+        <div class="jiVal">
+
+            {{#if obj.isObject }}
+                {
+                {{json-inspector-object jiObject=obj.val propertyPath=obj.path updatePath="updatePath"}}
+                }
+            {{/if}}
+
+            {{#if obj.isArray }}
+                [
+                {{json-inspector-array  jiArray=obj.val propertyPath=obj.path updatePath="updatePath"}}
+                ]
+            {{/if}}
+
+            {{#if obj.isString }}
+                <div class="jiVal" {{action 'updatePath' obj.path}}>
+                    "{{ obj.val }}"{{#unless obj.isLast}},{{/unless}}
+                </div>
+            {{/if}}
+
+            {{#if obj.isNumber }}
+                <div class="jiVal" {{action 'updatePath' obj.path}}>
+                    {{ obj.val }}{{#unless obj.isLast}},{{/unless}}
+                </div>
+            {{/if}}
+
+        </div>
+    </div>
+{{/each}}
+{{!yield}}
+

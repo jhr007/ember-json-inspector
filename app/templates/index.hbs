@@ -1,0 +1,38 @@
+{{#if jsonError}}
+    <div>
+        Bad JSON<br>
+      {{jsonErrorMessage}}
+    </div>
+{{/if}}
+<div>
+</div>
+{{!jsontext}}
+
+{{!jsonObj}}
+
+<div layout="row">
+    <div flex="{{jsonBoxWidth}}">
+      {{textarea value=jsontext layout-fill="" rows="20"}}
+    </div>
+    <!-- @todo flexible textarea
+      <div layout="row" layout-align="start center" flex="5">
+        <div>
+          &lt;
+        </div>
+      </div>
+      -->
+    <div flex="5">
+    </div>
+    <div layout="column" flex>
+        <div >
+          {{input value=propertyPath layout-fill=""}}
+        </div>
+        <div class="md-whiteframe-z2" layout-fill layout-padding>
+          {{log 'jsonObj' jsonObj }}
+          {{json-inspector inspectThis=jsonObj updatePath="updatePath"}}
+          {{!json-inspector inspectThis=jsonObj value=selectedjson}}
+        </div>
+    </div>
+</div>
+
+{{outlet}}
