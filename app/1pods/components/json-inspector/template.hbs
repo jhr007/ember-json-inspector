@@ -1,12 +1,12 @@
 
 {{#if metaObj.isObject }}
-    {{json-inspector-object jiObject=metaObj.inspectObj path=metaObj.path isLast=isLast}}
+    {{json-inspector-object jiObject=metaObj.inspectObj path=metaObj.path isLast=isLast updatePath="updatePath"}}
 {{/if}}
 
 {{#if metaObj.isArray }}
-    {{json-inspector-array  jiArray=metaObj.inspectObj path=metaObj.path isLast=isLast}}
+    {{json-inspector-array  jiArray=metaObj.inspectObj path=metaObj.path isLast=isLast updatePath="updatePath"}}
 {{/if}}
 
 {{#if metaObj.isPrimitive}}
-  {{json-inspector-primitive jiPrimitive=metaObj.inspectObj path=metaObj.path isLast=isLast}}
+  {{json-inspector-primitive jiPrimitive=metaObj.inspectObj path=metaObj.path isLast=isLast updatePath="updatePath"}}
 {{/if}}

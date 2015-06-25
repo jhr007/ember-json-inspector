@@ -10,7 +10,7 @@
 
 <div layout="row">
     <div flex="{{jsonBoxWidth}}">
-      {{textarea value=jsontext layout-fill="" rows="20"}}
+            {{textarea value=jsontext layout-fill="" rows="20"}}
     </div>
     <!-- @todo flexible textarea
       <div layout="row" layout-align="start center" flex="5">
@@ -22,9 +22,11 @@
     <div flex="5">
     </div>
 
-    <div layout="column" flex>
+    <div class="ji-frame" layout="column" flex>
         <div >
-            {{input value=propertyPath layout-fill=""}}
+            {{#ember-sticky}}
+                {{input value=propertyPath layout-fill=""}}
+            {{/ember-sticky}}
         </div>
         <div class="md-whiteframe-z2" layout-fill layout-padding>
             {{json-inspector inspectThis=jsonObj updatePath="updatePath"}}

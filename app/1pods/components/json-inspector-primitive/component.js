@@ -1,6 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  actions: {
+    updatePath: function (path) {
+      this.sendAction('updatePath', path);
+    }
+  },
+
   init: function () {
     var val = this.get('jiPrimitive');
     var type = Ember.typeOf(val);

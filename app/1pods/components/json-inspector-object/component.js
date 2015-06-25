@@ -5,15 +5,21 @@ export default Ember.Component.extend({
   actions: {
     updatePath: function (path) {
       this.sendAction('updatePath', path);
+    },
+    toggleExpanded: function ( ) {
+      this.toggleProperty('isExpanded');
     }
   },
 
-  /*
+//*
   init: function () {
-    console.log('json-ispector-object: isLast', this.get('isLast') );
+    //console.log('json-ispector-object: isLast', this.get('isLast') );
+    this.set('isExpanded', true);
     this._super();
   },
-  //*/
+//*/
+
+//  isExpanded: true,
 
   arrayedObj: function () {
 

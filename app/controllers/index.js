@@ -16,8 +16,8 @@ export default Ember.Controller.extend({
     
     var initObj = {
       uberAlles: [0,1,2,3],
-      uberAllesUber: [0,1,2,3],
-      uberAllesUberAlles: [[0,1,2,3],[0,1,2,3],[0,1,2,3],[0,1,2,3]],
+      //uberAllesUber: [0,1,2,3],
+      //uberAllesUberAlles: [[0,1,2,3],[0,1,2,3],[0,1,2,3],[0,1,2,3]],
       keyone: 'soeme value',
       keytwo: 'woot',
       isAwesome: true,
@@ -39,7 +39,7 @@ export default Ember.Controller.extend({
       }
     };
 
-
+    /*
     initObj = {
       'Ember': [
         'J',
@@ -49,6 +49,7 @@ export default Ember.Controller.extend({
         {'Inspector':true}
         ]
     };
+    //*/
 
     var str = JSON.stringify(initObj);
 

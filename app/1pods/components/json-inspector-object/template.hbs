@@ -12,17 +12,45 @@
 
   --}}
 
-{
-{{#each arrayedObj as |obj|}}
-    {{!log 'jio' this content}}
-    <div layout="row" class="jiRow">
-        <div><span class="jiKey" {{action 'updatePath' obj.path}}>"{{obj.key}}":&nbsp;</span></div>
-        <div class="jiVal">
-            {{json-inspector inspectThis=obj.val path=obj.path updatePath="updatePath" isLast=obj.isLast}}
+<div layout="row">
+
+<div>
+{{#md-button class="ji-button" action="toggleExpanded"}}
+    {{#if isExpanded }}
+        {{material-design-icon name='menu-down'}}
+    {{/if}}
+
+    {{#unless isExpanded }}
+        {{material-design-icon name='menu-right'}}
+    {{/unless}}
+{{/md-button}}
+</div>
+
+<div> {
+
+{{#if isExpanded}}
+
+    {{#each arrayedObj as |obj|}}
+        {{!log 'jio' this content}}
+        <div layout="row" class="jiRow">
+            <div class="jiKey" {{action 'updatePath' obj.path}}>
+                {{!--<span class="jiKey" {{action 'updatePath' obj.path}}>--}}
+                    "{{obj.key}}":&nbsp;
+                {{!--</span>--}}
+            </div>
+            <div>
+                {{json-inspector inspectThis=obj.val path=obj.path updatePath="updatePath" isLast=obj.isLast}}
+            </div>
         </div>
-    </div>
-{{/each}}
+    {{/each}}
+{{else}}
+...
+{{/if}}  {{! /if isExpanded }}
+
 }{{#unless isLast}},{{/unless}}
+</div>
+
+</div>  {{! div[layout=row] }}
 
 {{!yield}}
 

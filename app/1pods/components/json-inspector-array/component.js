@@ -4,8 +4,13 @@ export default Ember.Component.extend({
   actions: {
     updatePath: function (path) {
       this.sendAction('updatePath', path);
+    },
+    toggleExpanded: function ( ) {
+      this.toggleProperty('isExpanded');
     }
   },
+
+  isExpanded: true,
 
   arrayedArray: function () {
 
