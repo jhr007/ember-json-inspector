@@ -1,10 +1,11 @@
 import Ember from 'ember';
+import jiMixin from 'ember-json-inspector/mixins/json-inspector-mixin';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(jiMixin, {
+  classNames: ['ji-array'],
+  attributeBindings: ['attrLayout:layout'],
+  attrLayout: 'row',
   actions: {
-    updatePath: function (path) {
-      this.sendAction('updatePath', path);
-    },
     toggleExpanded: function ( ) {
       this.toggleProperty('isExpanded');
     }

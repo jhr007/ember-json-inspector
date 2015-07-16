@@ -2,16 +2,16 @@
 {{!log 'arrayedObj' arrayedArray}}
 
 {{!--
-                 _____    _____              __     __
-         /\     |  __ \  |  __ \      /\     \ \   / /
-        /  \    | |__) | | |__) |    /  \     \ \_/ /
-       / /\ \   |  _  /  |  _  /    / /\ \     \   /
-      / ____ \  | | \ \  | | \ \   / ____ \     | |
-     /_/    \_\ |_|  \_\ |_|  \_\ /_/    \_\    |_|
+             _____    _____              __     __
+     /\     |  __ \  |  __ \      /\     \ \   / /
+    /  \    | |__) | | |__) |    /  \     \ \_/ /
+   / /\ \   |  _  /  |  _  /    / /\ \     \   /
+  / ____ \  | | \ \  | | \ \   / ____ \     | |
+ /_/    \_\ |_|  \_\ |_|  \_\ /_/    \_\    |_|
 --}}
 
 
-<div layout="row">
+{{!-- <div layout="row"> --}}
 
     <div>
         {{#md-button class="ji-button" action="toggleExpanded"}}
@@ -26,24 +26,24 @@
     </div>
 
 
-<div> [
+    <div> [
 
-{{#if isExpanded}}
+    {{#if isExpanded}}
 
-    {{#each arrayedArray as |obj|}}
+        {{#each arrayedArray as |obj|}}
 
-        <div layout="row" class="jiRow">
-            {{json-inspector inspectThis=obj.val path=obj.path updatePath="updatePath" isLast=obj.isLast}}
-        </div>
+            <div layout="row" class="jiRow">
+                {{json-inspector inspectThis=obj.val path=obj.path updatePath="updatePath" isLast=obj.isLast}}
+            </div>
 
-    {{/each}}
+        {{/each}}
 
-{{else}}
-...
-{{/if}}  {{! /if isExpanded }}
+    {{else}}
+    ...
+    {{/if}}  {{! /if isExpanded }}
 
-]{{#unless isLast}},{{/unless}}
+    ]{{#unless isLast}},{{/unless}}
 
-</div>
+    </div>
 
-</div>  {{! div[layout=row] }}
+{{!  </div>  {{! div[layout=row] }}

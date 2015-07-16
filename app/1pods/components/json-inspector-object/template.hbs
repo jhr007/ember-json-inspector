@@ -12,43 +12,43 @@
 
   --}}
 
-<div layout="row">
+<div layout="row" class="ji-object" >
 
-<div>
-{{#md-button class="ji-button" action="toggleExpanded"}}
-    {{#if isExpanded }}
-        {{material-design-icon name='menu-down'}}
-    {{/if}}
+    <div {{action "updatePath" path}}>
+    {{#md-button class="ji-button" action="toggleExpanded"}}
+        {{#if isExpanded }}
+            {{material-design-icon name='menu-down'}}
+        {{/if}}
 
-    {{#unless isExpanded }}
-        {{material-design-icon name='menu-right'}}
-    {{/unless}}
-{{/md-button}}
-</div>
+        {{#unless isExpanded }}
+            {{material-design-icon name='menu-right'}}
+        {{/unless}}
+    {{/md-button}}
+    </div>
 
-<div> {
+    <div {{action 'updatePath' path}}> {
 
-{{#if isExpanded}}
+    {{#if isExpanded}}
 
-    {{#each arrayedObj as |obj|}}
-        {{!log 'jio' this content}}
-        <div layout="row" class="jiRow">
-            <div class="jiKey" {{action 'updatePath' obj.path}}>
-                {{!--<span class="jiKey" {{action 'updatePath' obj.path}}>--}}
-                    "{{obj.key}}":&nbsp;
-                {{!--</span>--}}
+        {{#each arrayedObj as |obj|}}
+            {{!log 'jio' this content}}
+            <div layout="row" class="jiRow">
+                <div class="jiKey" {{action 'updatePath' obj.path}}>
+                    {{!--<span class="jiKey" {{action 'updatePath' obj.path}}>--}}
+                        "{{obj.key}}":&nbsp;
+                    {{!--</span>--}}
+                </div>
+                {{! <div> }}
+                    {{json-inspector inspectThis=obj.val path=obj.path updatePath="updatePath" isLast=obj.isLast}}
+                {{! </div> }}
             </div>
-            <div>
-                {{json-inspector inspectThis=obj.val path=obj.path updatePath="updatePath" isLast=obj.isLast}}
-            </div>
-        </div>
-    {{/each}}
-{{else}}
-...
-{{/if}}  {{! /if isExpanded }}
+        {{/each}}
+    {{else}}
+    ...
+    {{/if}}  {{! /if isExpanded }}
 
-}{{#unless isLast}},{{/unless}}
-</div>
+    }{{#unless isLast}},{{/unless}}
+    </div>
 
 </div>  {{! div[layout=row] }}
 

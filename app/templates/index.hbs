@@ -24,9 +24,9 @@
 
     <div class="ji-frame" layout="column" flex>
         <div >
-            {{#ember-sticky}}
+            {{#sticky-container}}
                 {{input value=propertyPath layout-fill=""}}
-            {{/ember-sticky}}
+            {{/sticky-container}}
         </div>
         <div class="md-whiteframe-z2" layout-fill layout-padding>
             {{json-inspector inspectThis=jsonObj updatePath="updatePath"}}
