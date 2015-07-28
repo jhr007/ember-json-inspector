@@ -104,3 +104,7 @@ $valueBorderColor: rgba(  0, 90,138,.5);
 
 @import "ember-material-design";
 
+
+.showInspector.liquid-container.liquid-animating {
+  min-width: 100% !important ;
+}

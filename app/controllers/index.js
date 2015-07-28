@@ -54,7 +54,7 @@ export default Ember.Controller.extend({
 
     var str = JSON.stringify(initObj);
 
-    this.set('jsontext', str);
+//    this.set('jsontext', str);
   },
 
   jsonObj: Ember.computed('jsontext', function() {

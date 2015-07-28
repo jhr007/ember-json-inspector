@@ -15,21 +15,13 @@
         {{/if}}
         {{textarea value=jsontext layout-fill="" rows="10"}}
     </div>
-        <!-- @todo flexible textarea
-          <div layout="row" layout-align="start center" flex="5">
-            <div>
-              &lt;
-            </div>
-          </div>
-          -->
-    {{!--{{#liquid-if showInspector class='showInspector'}}--}}
-    {{#if showInspector}}
 
     <div flex="5">
     </div>
 
-
     <div class="ji-frame" layout="column" flex>
+        {{!-- {{#liquid-if showInspector class='showInspector'}} --}}
+
         <h2 class="md-title">JSON Inspector</h2>
         <div layout-fill="">
             {{#sticky-container}}
@@ -39,9 +31,9 @@
         <div class="md-whiteframe-z2"  layout-padding>
             {{json-inspector inspectThis=inspectThisObject updatePath="updatePath"}}
         </div>
+        {{!-- {{/liquid-if }}  {{!#if false}} --}}
     </div>
-    {{/if }}  {{!#if false}}
-    {{!--{{/liquid-if }} --}}{{!-- {{#if false}} --}}
+    {{!-- {{/if }}  {{!#if false}} --}}
 </div>
 
 {{outlet}}
