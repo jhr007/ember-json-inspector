@@ -12,7 +12,7 @@
                 Bad JSON<br>
               {{jsonErrorMessage}}
             </div>
-        {{/if}}    
+        {{/if}}
         {{textarea value=jsontext layout-fill="" rows="10"}}
     </div>
         <!-- @todo flexible textarea
@@ -22,6 +22,7 @@
             </div>
           </div>
           -->
+    {{!--{{#liquid-if showInspector class='showInspector'}}--}}
     {{#if showInspector}}
 
     <div flex="5">
@@ -39,7 +40,8 @@
             {{json-inspector inspectThis=inspectThisObject updatePath="updatePath"}}
         </div>
     </div>
-    {{/if }} {{!-- {{#if false}} --}}
+    {{/if }}  {{!#if false}}
+    {{!--{{/liquid-if }} --}}{{!-- {{#if false}} --}}
 </div>
 
 {{outlet}}
