@@ -11,11 +11,12 @@ export default Ember.Controller.extend({
 
 
   init: function () {
-    this.set('jsonBoxWidth',45);
+//     this.set('jsonInputWidth',45);
+//     this.set('jsonInputOffset', 0);
     this.set('jsonError', false);
     
     var initObj = {
-      uberAlles: [0,1,2,3],
+      uberAlles: [0,1,2,[0,1,2,[0,1,2,3],3],3],
       //uberAllesUber: [0,1,2,3],
       //uberAllesUberAlles: [[0,1,2,3],[0,1,2,3],[0,1,2,3],[0,1,2,3]],
       keyone: 'soeme value',
@@ -56,22 +57,48 @@ export default Ember.Controller.extend({
     this.set('jsontext', str);
   },
 
-  jsonObj: function() {
+  jsonObj: Ember.computed('jsontext', function() {
+    var jsonstr = this.get('jsontext');
+
+    if ( jsonstr === undefined ) {
+      this.set('jsonError', false);
+      return NaN; //@TODO DIRTY HACK
+    }
 
     try {
-      var jsonstr = this.get('jsontext');
       var tempObj = JSON.parse(jsonstr);
       this.set('jsonError', false);
+      this.set('inspectThisObject', tempObj);
       return tempObj;
     }
     catch (e) {
       this.set('jsonError', true);
       this.set('jsonErrorMessage', e);
-      return {};
+      this.set('inspectThisObject', {});
+      return NaN; //@todo ... Dirty Dirty Hack
+      //this.set('jsontext', "{str}");
     }
 
     throw new Error('Not sure how I got here');
 
-  }.property('jsontext')
+  }), 
+
+  showInspector: Ember.computed('jsonObj', function() {
+    var jsonParse = this.get('jsonObj');
+    var jsonParseIsValid = ! ( (Ember.typeOf(jsonParse) === 'number') && (jsonParse !== jsonParse) ) //NaN !== NaN
+    var showInspector = jsonParseIsValid;
+
+    if ( showInspector ) {
+      this.set('jsonInputWidth', 30);
+      this.set('jsonInputOffset', 0);
+    }
+    else {
+      this.set('jsonInputWidth',40);
+      this.set('jsonInputOffset', 30);
+    }
+    return jsonParseIsValid
+  }),
+
+  inspectThisObject: {},
 
 });

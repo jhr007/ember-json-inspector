@@ -12,9 +12,9 @@
 
   --}}
 
-<div layout="row" class="ji-object" >
+<div layout="row" layout-padding="" class="ji-object" {{action "updatePath" path bubbles=false}}>
 
-    <div {{action "updatePath" path}}>
+    <div>
     {{#md-button class="ji-button" action="toggleExpanded"}}
         {{#if isExpanded }}
             {{material-design-icon name='menu-down'}}
@@ -26,14 +26,14 @@
     {{/md-button}}
     </div>
 
-    <div {{action 'updatePath' path}}> {
+    <div> {
 
     {{#if isExpanded}}
 
         {{#each arrayedObj as |obj|}}
             {{!log 'jio' this content}}
-            <div layout="row" class="jiRow">
-                <div class="jiKey" {{action 'updatePath' obj.path}}>
+            <div layout="row" layout-margin="" class="jiRow">
+                <div class="jiKey" layout-padding="" {{action 'updatePath' obj.path bubbles=false}}>
                     {{!--<span class="jiKey" {{action 'updatePath' obj.path}}>--}}
                         "{{obj.key}}":&nbsp;
                     {{!--</span>--}}

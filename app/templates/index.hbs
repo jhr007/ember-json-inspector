@@ -1,37 +1,45 @@
-{{#if jsonError}}
-    <div>
-        Bad JSON<br>
-      {{jsonErrorMessage}}
-    </div>
-{{/if}}
 
-<div>
+<div layout-align="center">
+    <h1 id="title">Ember JSON Inspector</h1>
 </div>
 
 <div layout="row">
-    <div flex="{{jsonBoxWidth}}">
-            {{textarea value=jsontext layout-fill="" rows="20"}}
+
+    <div flex="{{jsonInputWidth}}" offset="{{jsonInputOffset}}">
+        <h2 class="md-title">JSON Text</h2>
+        {{#if jsonError}}
+            <div>
+                Bad JSON<br>
+              {{jsonErrorMessage}}
+            </div>
+        {{/if}}    
+        {{textarea value=jsontext layout-fill="" rows="10"}}
     </div>
-    <!-- @todo flexible textarea
-      <div layout="row" layout-align="start center" flex="5">
-        <div>
-          &lt;
-        </div>
-      </div>
-      -->
+        <!-- @todo flexible textarea
+          <div layout="row" layout-align="start center" flex="5">
+            <div>
+              &lt;
+            </div>
+          </div>
+          -->
+    {{#if showInspector}}
+
     <div flex="5">
     </div>
 
+
     <div class="ji-frame" layout="column" flex>
-        <div >
+        <h2 class="md-title">JSON Inspector</h2>
+        <div layout-fill="">
             {{#sticky-container}}
                 {{input value=propertyPath layout-fill=""}}
             {{/sticky-container}}
         </div>
-        <div class="md-whiteframe-z2" layout-fill layout-padding>
-            {{json-inspector inspectThis=jsonObj updatePath="updatePath"}}
+        <div class="md-whiteframe-z2"  layout-padding>
+            {{json-inspector inspectThis=inspectThisObject updatePath="updatePath"}}
         </div>
     </div>
+    {{/if }} {{!-- {{#if false}} --}}
 </div>
 
 {{outlet}}

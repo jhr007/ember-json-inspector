@@ -5,39 +5,79 @@ html body {
 
 #title {
   margin-top: 0px;
-
+  font-variant: small-caps;
+  text-align: center;
 }
 
-/*
-.ji-frame {
-  background-color: blue;
+h2.md-title {
+  font-weight: bold;
+  font-variant: small-caps;
 }
-*/
 
-.jiRow {
-  margin-left: 8px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+$keyBackgroundColor: white;
+$keyBorderColor: white;
+
+$valueBackgroundColor: white;
+$valueBorderColor: white;
+
+$arrayBackgroundColor: white;
+$arrayBorderColor: white;
+
+$objectBackgroundColor: white;
+$objectBorderColor: white;
+
+/* THANK YOU!: http://paletton.com/ */
+
+
+$oaBackground: rgba(119,208,255,.4);
+$oaBorder: rgba( 13,170,255,0.2);
+
+$objectBackgroundColor: $oaBackground;
+$objectBorderColor:  $oaBorder;
+
+$arrayBackgroundColor: $oaBackground;
+$arrayBorderColor: $oaBorder;
+
+
+$keyBackgroundColor:  rgba( 79,201, 72,.95);
+$keyBorderColor: rgba( 25,149, 18,1);
+
+$valueBackgroundColor: rgba( 13,170,255,.6);
+$valueBorderColor: rgba(  0, 90,138,.5);
+
+
+
+
+// div.jiRow {
+//   margin-left: 16px;
+// }
+
+.jiRow > * {
+  margin: 0px 8px; 
 }
 
 .ji-array {
-    background: gold none repeat scroll 0 0;
-    padding: 4px;
+  background: $arrayBackgroundColor none repeat scroll 0 0;
+  border: 2px solid $arrayBorderColor;
+  padding: 4px;
 }
 
 .ji-object {
-    background: khaki none repeat scroll 0 0;
-    padding: 4px;
+  background: $objectBackgroundColor none repeat scroll 0 0;
+  border: 2px solid $objectBorderColor;
+  padding: 4px;
 }
 
 .jiKey {
-  background-color: #30d4ae;
-  padding: 4px 0px 4px 8px;
-  margin-right: 4px;
+  background-color: $keyBackgroundColor;
+  border: 2px solid $keyBorderColor;
+  // padding: 4px 0px 4px 8px;
+  // margin-right: 4px;
 }
 
 .jiVal {
-  background-color: #d4cf4f;
+  background-color: $valueBackgroundColor;
+  border: 2px solid $valueBorderColor;
   padding: 4px 8px 4px 8px;
   margin-right: 4px;
 }

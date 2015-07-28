@@ -4,13 +4,8 @@ import jiMixin from 'ember-json-inspector/mixins/json-inspector-mixin';
 export default Ember.Component.extend(jiMixin, {
   classNames: ['ji-router'],
 
-//   actions: {
-// // @todo DRY? Create a mixin for this action?
-//     updatePath: function(path) {
-//       this.sendAction('updatePath', path)
-//     //   updateAction
-//     }
-//   },
+  // attributeBindings: ['layoutFill:layout-fill'],
+  // layoutFill:"",
 
   init: function () {
     if ( this.get('isLast') === undefined ) {
@@ -20,7 +15,7 @@ export default Ember.Component.extend(jiMixin, {
     this._super();
   },
 
-  metaObj: function () {
+  metaObj: Ember.computed('inspectThis', function () {
     var inspectThis = this.get('inspectThis');
     var type = Ember.typeOf(inspectThis);
 
@@ -29,11 +24,11 @@ export default Ember.Component.extend(jiMixin, {
       path: this.get('path') || 'yourVar',
       isArray: type === 'array',
       isObject: type === 'object',
-      isPrimitive: (type === 'string') || (type === 'number') || (type === 'boolean')
+      isPrimitive: (type === 'string') || (type === 'number') || (type === 'boolean') || (type === 'null')
     };
 
     return metaObj;
 
-  }.property('inspectThis'),
+  }),
 
 });

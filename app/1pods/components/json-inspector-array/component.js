@@ -1,10 +1,10 @@
 import Ember from 'ember';
 import jiMixin from 'ember-json-inspector/mixins/json-inspector-mixin';
 
-export default Ember.Component.extend(jiMixin, {
-  classNames: ['ji-array'],
-  attributeBindings: ['attrLayout:layout'],
-  attrLayout: 'row',
+export default Ember.Component.extend( jiMixin, {
+  attributeBindings: ['layoutFill:layout-fill'],
+  layoutFill:"",
+  
   actions: {
     toggleExpanded: function ( ) {
       this.toggleProperty('isExpanded');
@@ -13,7 +13,7 @@ export default Ember.Component.extend(jiMixin, {
 
   isExpanded: true,
 
-  arrayedArray: function () {
+  arrayedArray: Ember.computed('jiArray', function () {
 
     var arr = this.get('jiArray');
     if (Ember.typeOf(arr) !== 'array') { return []; }
@@ -33,5 +33,5 @@ export default Ember.Component.extend(jiMixin, {
     });
 
     return vals;
-  }.property('jiArray'),
+  }),
 });

@@ -11,10 +11,10 @@
 --}}
 
 
-{{!-- <div layout="row"> --}}
+<div layout="row" class="ji-array" layout-fill="" layout-padding="" {{action "updatePath" path bubbles=false}} >
 
     <div>
-        {{#md-button class="ji-button" action="toggleExpanded"}}
+        {{#md-button class="ji-button" action="toggleExpanded" bubbles=false}}
             {{#if isExpanded }}
                 {{material-design-icon name='menu-down'}}
             {{/if}}
@@ -26,24 +26,23 @@
     </div>
 
 
-    <div> [
+    <div layout-fill="" > [
+        {{#if isExpanded}}
 
-    {{#if isExpanded}}
+            {{#each arrayedArray as |obj|}}
 
-        {{#each arrayedArray as |obj|}}
+                <div layout="row" layout-margin="" class="jiRow">
+                    {{json-inspector inspectThis=obj.val path=obj.path updatePath="updatePath" isLast=obj.isLast}}
+                </div>
 
-            <div layout="row" class="jiRow">
-                {{json-inspector inspectThis=obj.val path=obj.path updatePath="updatePath" isLast=obj.isLast}}
-            </div>
+            {{/each}}
 
-        {{/each}}
+        {{else}}
+        ...
+        {{/if}}  {{! /if isExpanded }}
 
-    {{else}}
-    ...
-    {{/if}}  {{! /if isExpanded }}
-
-    ]{{#unless isLast}},{{/unless}}
+        ]{{#unless isLast}},{{/unless}}
 
     </div>
 
-{{!  </div>  {{! div[layout=row] }}
+</div>  {{! div[layout=row] }} 
