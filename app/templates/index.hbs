@@ -8,12 +8,19 @@
     <div flex="{{jsonInputWidth}}" offset="{{jsonInputOffset}}">
         <h2 class="md-title">JSON Text</h2>
         {{#if jsonError}}
-            <div>
-                Bad JSON<br>
-              {{jsonErrorMessage}}
+            <div class="md-warn">
+                Bad JSON
+          
+            <div layout-padding="" >                
+                {{jsonErrorMessage}}
             </div>
+              </div>
         {{/if}}
         {{textarea value=jsontext layout-fill="" rows="10"}}
+
+        {{#md-button class="md-raised" action="sampleData1" bubbles=false}}
+            Sample Data
+        {{/md-button}}
     </div>
 
     {{#if showInspector}}
@@ -33,6 +40,10 @@
             {{json-inspector inspectThis=inspectThisObject updatePath="updatePath"}}
         </div>
         {{!-- {{/liquid-if }}  {{!#if false}} --}}
+    </div>
+
+    <div flex="25">
+        
     </div>
 
 

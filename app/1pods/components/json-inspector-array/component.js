@@ -28,7 +28,7 @@ export default Ember.Component.extend( jiMixin, {
         isLast: idx===(origarray.length-1),
 
         path: thisPath + '['+idx+']'
-      }
+      };
       return newObj;
     });
 
