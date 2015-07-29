@@ -1418,74 +1418,66 @@ define('ember-json-inspector/controllers/index', ['exports', 'ember'], function 
       updatePath: function updatePath(newPath) {
         console.log('updatePath', newPath);
         this.set('propertyPath', newPath);
+      },
+      sampleData1: function sampleData1() {
+        var obj = {
+          uberAlles: [0, 1, 2, [0, 1, 2, [0, 1, 2, 3], 3], 3],
+          //uberAllesUber: [0,1,2,3],
+          //uberAllesUberAlles: [[0,1,2,3],[0,1,2,3],[0,1,2,3],[0,1,2,3]],
+          keyone: 'soeme value',
+          keytwo: 'woot',
+          isAwesome: true,
+          alfred: 123123,
+          batman: {
+            name: 'bruce wayne',
+            butler: 'alfred',
+            team: 'Heroes',
+            car: [{
+              name: 'batmobile',
+              wheels: 4
+            }, {
+              name: 'batmobile',
+              wheels: 4
+            }, {
+              name: 'batmobile',
+              wheels: 4
+            }]
+          }
+        };
+        var str = JSON.stringify(obj);
+        this.set('jsontext', str);
       }
     },
 
     init: function init() {
-      //     this.set('jsonInputWidth',45);
-      //     this.set('jsonInputOffset', 0);
       this.set('jsonError', false);
 
-      var initObj = {
-        uberAlles: [0, 1, 2, [0, 1, 2, [0, 1, 2, 3], 3], 3],
-        //uberAllesUber: [0,1,2,3],
-        //uberAllesUberAlles: [[0,1,2,3],[0,1,2,3],[0,1,2,3],[0,1,2,3]],
-        keyone: 'soeme value',
-        keytwo: 'woot',
-        isAwesome: true,
-        alfred: 123123,
-        batman: {
-          name: 'bruce wayne',
-          butler: 'alfred',
-          team: 'badasses',
-          car: [{
-            name: 'batmobile',
-            wheels: 4
-          }, {
-            name: 'batmobile',
-            wheels: 4
-          }, {
-            name: 'batmobile',
-            wheels: 4
-          }]
-        }
-      };
-
-      /*
-      initObj = {
-        'Ember': [
-          'J',
-          5,
-          0,
-          'N',
-          {'Inspector':true}
-          ]
-      };
-      //*/
-
-      var str = JSON.stringify(initObj);
-
-      //    this.set('jsontext', str);
+      //    this.sendAction('sampleData1');
     },
 
     jsonObj: Ember['default'].computed('jsontext', function () {
-      var jsonstr = this.get('jsontext');
+      console.log('jsonObj');
+      var jsonStr = this.get('jsontext');
+      var oldObj = this.get('inspectThisObject');
 
-      if (jsonstr === undefined) {
+      if (jsonStr === undefined || jsonStr === '') {
         this.set('jsonError', false);
-        return NaN; //@TODO DIRTY HACK
+        this.set('inspectThisObject', undefined);
+        return NaN;
+        // return NaN; //@TODO DIRTY HACK
       }
 
       try {
-        var tempObj = JSON.parse(jsonstr);
+        var tempObj = JSON.parse(jsonStr);
         this.set('jsonError', false);
         this.set('inspectThisObject', tempObj);
         return tempObj;
       } catch (e) {
         this.set('jsonError', true);
         this.set('jsonErrorMessage', e);
-        this.set('inspectThisObject', {});
-        return NaN; //@todo ... Dirty Dirty Hack
+        // this.set('inspectThisObject', };
+        return oldObj === undefined ? NaN : oldObj;
+        //@todo ... Dirty Dirty Hack
         //this.set('jsontext', "{str}");
       }
 
@@ -1493,18 +1485,19 @@ define('ember-json-inspector/controllers/index', ['exports', 'ember'], function 
     }),
 
     showInspector: Ember['default'].computed('jsonObj', function () {
-      var jsonParse = this.get('jsonObj');
-      var jsonParseIsValid = !(Ember['default'].typeOf(jsonParse) === 'number' && jsonParse !== jsonParse); //NaN !== NaN
+      console.log('showInspector');
+      var jsonObj = this.get('jsonObj');
+      var jsonParseIsValid = !(Ember['default'].typeOf(jsonObj) === 'number' && jsonObj !== jsonObj); //NaN !== NaN
       var showInspector = jsonParseIsValid;
 
       if (showInspector) {
         this.set('jsonInputWidth', 30);
-        this.set('jsonInputOffset', 0);
+        this.set('jsonInputOffset', 10);
       } else {
         this.set('jsonInputWidth', 40);
-        this.set('jsonInputOffset', 30);
+        this.set('jsonInputOffset', 25);
       }
-      return jsonParseIsValid;
+      return showInspector;
     }),
 
     inspectThisObject: {}
@@ -2981,7 +2974,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
               "column": 8
             },
             "end": {
-              "line": 15,
+              "line": 18,
               "column": 8
             }
           },
@@ -2995,15 +2988,19 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
           var el1 = dom.createTextNode("            ");
           dom.appendChild(el0, el1);
           var el1 = dom.createElement("div");
-          var el2 = dom.createTextNode("\n                Bad JSON");
+          dom.setAttribute(el1,"class","md-warn");
+          var el2 = dom.createTextNode("\n                Bad JSON\n          \n            ");
           dom.appendChild(el1, el2);
-          var el2 = dom.createElement("br");
+          var el2 = dom.createElement("div");
+          dom.setAttribute(el2,"layout-padding","");
+          var el3 = dom.createTextNode("                \n                ");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createComment("");
+          dom.appendChild(el2, el3);
+          var el3 = dom.createTextNode("\n            ");
+          dom.appendChild(el2, el3);
           dom.appendChild(el1, el2);
           var el2 = dom.createTextNode("\n              ");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createComment("");
-          dom.appendChild(el1, el2);
-          var el2 = dom.createTextNode("\n            ");
           dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n");
@@ -3012,17 +3009,51 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
         },
         buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
           var morphs = new Array(1);
-          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1]),3,3);
+          morphs[0] = dom.createMorphAt(dom.childAt(fragment, [1, 1]),1,1);
           return morphs;
         },
         statements: [
-          ["content","jsonErrorMessage",["loc",[null,[13,14],[13,34]]]]
+          ["content","jsonErrorMessage",["loc",[null,[15,16],[15,36]]]]
         ],
         locals: [],
         templates: []
       };
     }());
     var child1 = (function() {
+      return {
+        meta: {
+          "revision": "Ember@1.13.3",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 21,
+              "column": 8
+            },
+            "end": {
+              "line": 23,
+              "column": 8
+            }
+          },
+          "moduleName": "ember-json-inspector/templates/index.hbs"
+        },
+        arity: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("            Sample Data\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes() { return []; },
+        statements: [
+
+        ],
+        locals: [],
+        templates: []
+      };
+    }());
+    var child2 = (function() {
       var child0 = (function() {
         return {
           meta: {
@@ -3030,11 +3061,11 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
             "loc": {
               "source": null,
               "start": {
-                "line": 28,
+                "line": 35,
                 "column": 12
               },
               "end": {
-                "line": 30,
+                "line": 37,
                 "column": 12
               }
             },
@@ -3059,7 +3090,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
             return morphs;
           },
           statements: [
-            ["inline","input",[],["value",["subexpr","@mut",[["get","propertyPath",["loc",[null,[29,30],[29,42]]]]],[],[]],"layout-fill",""],["loc",[null,[29,16],[29,59]]]]
+            ["inline","input",[],["value",["subexpr","@mut",[["get","propertyPath",["loc",[null,[36,30],[36,42]]]]],[],[]],"layout-fill",""],["loc",[null,[36,16],[36,59]]]]
           ],
           locals: [],
           templates: []
@@ -3071,11 +3102,11 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
           "loc": {
             "source": null,
             "start": {
-              "line": 19,
+              "line": 26,
               "column": 4
             },
             "end": {
-              "line": 39,
+              "line": 50,
               "column": 4
             }
           },
@@ -3134,6 +3165,13 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
           var el2 = dom.createTextNode("    ");
           dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n\n    ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("div");
+          dom.setAttribute(el1,"flex","25");
+          var el2 = dom.createTextNode("\n        \n    ");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n\n\n    ");
           dom.appendChild(el0, el1);
           return el0;
@@ -3146,8 +3184,8 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
           return morphs;
         },
         statements: [
-          ["block","sticky-container",[],[],0,null,["loc",[null,[28,12],[30,33]]]],
-          ["inline","json-inspector",[],["inspectThis",["subexpr","@mut",[["get","inspectThisObject",["loc",[null,[33,41],[33,58]]]]],[],[]],"updatePath","updatePath"],["loc",[null,[33,12],[33,84]]]]
+          ["block","sticky-container",[],[],0,null,["loc",[null,[35,12],[37,33]]]],
+          ["inline","json-inspector",[],["inspectThis",["subexpr","@mut",[["get","inspectThisObject",["loc",[null,[40,41],[40,58]]]]],[],[]],"updatePath","updatePath"],["loc",[null,[40,12],[40,84]]]]
         ],
         locals: [],
         templates: [child0]
@@ -3163,7 +3201,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 43,
+            "line": 54,
             "column": 0
           }
         },
@@ -3210,7 +3248,11 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
         dom.appendChild(el2, el3);
         var el3 = dom.createComment("");
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n    ");
+        var el3 = dom.createTextNode("\n\n");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createComment("");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("    ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n\n");
@@ -3233,25 +3275,27 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
         var element1 = dom.childAt(fragment, [3]);
         var element2 = dom.childAt(element1, [1]);
-        var morphs = new Array(6);
+        var morphs = new Array(7);
         morphs[0] = dom.createAttrMorph(element2, 'flex');
         morphs[1] = dom.createAttrMorph(element2, 'offset');
         morphs[2] = dom.createMorphAt(element2,3,3);
         morphs[3] = dom.createMorphAt(element2,5,5);
-        morphs[4] = dom.createMorphAt(element1,3,3);
-        morphs[5] = dom.createMorphAt(fragment,5,5,contextualElement);
+        morphs[4] = dom.createMorphAt(element2,7,7);
+        morphs[5] = dom.createMorphAt(element1,3,3);
+        morphs[6] = dom.createMorphAt(fragment,5,5,contextualElement);
         return morphs;
       },
       statements: [
         ["attribute","flex",["concat",[["get","jsonInputWidth",["loc",[null,[8,17],[8,31]]]]]]],
         ["attribute","offset",["concat",[["get","jsonInputOffset",["loc",[null,[8,45],[8,60]]]]]]],
-        ["block","if",[["get","jsonError",["loc",[null,[10,14],[10,23]]]]],[],0,null,["loc",[null,[10,8],[15,15]]]],
-        ["inline","textarea",[],["value",["subexpr","@mut",[["get","jsontext",["loc",[null,[16,25],[16,33]]]]],[],[]],"layout-fill","","rows","10"],["loc",[null,[16,8],[16,60]]]],
-        ["block","if",[["get","showInspector",["loc",[null,[19,10],[19,23]]]]],[],1,null,["loc",[null,[19,4],[39,12]]]],
-        ["content","outlet",["loc",[null,[42,0],[42,10]]]]
+        ["block","if",[["get","jsonError",["loc",[null,[10,14],[10,23]]]]],[],0,null,["loc",[null,[10,8],[18,15]]]],
+        ["inline","textarea",[],["value",["subexpr","@mut",[["get","jsontext",["loc",[null,[19,25],[19,33]]]]],[],[]],"layout-fill","","rows","10"],["loc",[null,[19,8],[19,60]]]],
+        ["block","md-button",[],["class","md-raised","action","sampleData1","bubbles",false],1,null,["loc",[null,[21,8],[23,22]]]],
+        ["block","if",[["get","showInspector",["loc",[null,[26,10],[26,23]]]]],[],2,null,["loc",[null,[26,4],[50,12]]]],
+        ["content","outlet",["loc",[null,[53,0],[53,10]]]]
       ],
       locals: [],
-      templates: [child0, child1]
+      templates: [child0, child1, child2]
     };
   }()));
 
@@ -3262,7 +3306,7 @@ define('ember-json-inspector/tests/1pods/components/json-inspector-array/compone
 
   module('JSHint - 1pods/components/json-inspector-array');
   test('1pods/components/json-inspector-array/component.js should pass jshint', function() { 
-    ok(false, '1pods/components/json-inspector-array/component.js should pass jshint.\n1pods/components/json-inspector-array/component.js: line 31, col 8, Missing semicolon.\n\n1 error'); 
+    ok(true, '1pods/components/json-inspector-array/component.js should pass jshint.'); 
   });
 
 });
@@ -3312,7 +3356,7 @@ define('ember-json-inspector/tests/controllers/index.jshint', function () {
 
   module('JSHint - controllers');
   test('controllers/index.js should pass jshint', function() { 
-    ok(false, 'controllers/index.js should pass jshint.\ncontrollers/index.js: line 88, col 101, Missing semicolon.\ncontrollers/index.js: line 99, col 28, Missing semicolon.\ncontrollers/index.js: line 55, col 9, \'str\' is defined but never used.\n\n3 errors'); 
+    ok(true, 'controllers/index.js should pass jshint.'); 
   });
 
 });
@@ -3674,7 +3718,7 @@ catch(err) {
 if (runningTests) {
   require("ember-json-inspector/tests/test-helper");
 } else {
-  require("ember-json-inspector/app")["default"].create({"name":"ember-json-inspector","version":"0.0.0+7099ee53"});
+  require("ember-json-inspector/app")["default"].create({"name":"ember-json-inspector","version":"0.0.0+78854988"});
 }
 
 /* jshint ignore:end */
