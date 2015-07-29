@@ -39,6 +39,10 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
   }
+  if (environment === 'gh-pages') {
+    //@TODO less ugly
+    ENV.baseURL = '/' + require('../package.json')['name'];
+  }
 
   if (environment === 'production') {
 
@@ -52,7 +56,7 @@ module.exports = function(environment) {
     'img-src': "'self'",
     'style-src': "'self' 'unsafe-inline'", //@TODO remove unsafe-inline
     'media-src': "'self'"
-  }
+  };
 
   return ENV;
 };

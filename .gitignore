@@ -20,4 +20,4 @@ testem.log
 /.idea/
 
 # My laziness knows no bounds
-runit.sh
+#runit.sh

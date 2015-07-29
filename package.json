@@ -39,5 +39,10 @@
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
     "ember-material-design": "0.7.1"
-  }
+  },
+  "keywords": [
+    "ember-utility",
+    "JSON",
+    "inspector"
+  ]
 }
