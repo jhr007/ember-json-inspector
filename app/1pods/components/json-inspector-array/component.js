@@ -4,7 +4,7 @@ import jiMixin from 'ember-json-inspector/mixins/json-inspector-mixin';
 export default Ember.Component.extend( jiMixin, {
   attributeBindings: ['layoutFill:layout-fill'],
   layoutFill:"",
-  
+
   actions: {
     toggleExpanded: function ( ) {
       this.toggleProperty('isExpanded');

@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
 //     this.set('jsonInputWidth',45);
 //     this.set('jsonInputOffset', 0);
     this.set('jsonError', false);
-    
+
     var initObj = {
       uberAlles: [0,1,2,[0,1,2,[0,1,2,3],3],3],
       //uberAllesUber: [0,1,2,3],
@@ -81,7 +81,7 @@ export default Ember.Controller.extend({
 
     throw new Error('Not sure how I got here');
 
-  }), 
+  }),
 
   showInspector: Ember.computed('jsonObj', function() {
     var jsonParse = this.get('jsonObj');

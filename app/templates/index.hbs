@@ -16,8 +16,9 @@
         {{textarea value=jsontext layout-fill="" rows="10"}}
     </div>
 
-    <div flex="5">
-    </div>
+    {{#if showInspector}}
+
+    <div flex="5"></div>
 
     <div class="ji-frame" layout="column" flex>
         {{!-- {{#liquid-if showInspector class='showInspector'}} --}}
@@ -33,7 +34,9 @@
         </div>
         {{!-- {{/liquid-if }}  {{!#if false}} --}}
     </div>
-    {{!-- {{/if }}  {{!#if false}} --}}
+
+
+    {{/if }}  {{!#if false}}
 </div>
 
 {{outlet}}

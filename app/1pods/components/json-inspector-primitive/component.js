@@ -3,13 +3,7 @@ import jiMixin from 'ember-json-inspector/mixins/json-inspector-mixin';
 
 export default Ember.Component.extend(jiMixin, {
   classNames: ['ji-primitive'],
-  actions: {
-    updatePath: function(path) {
-      console.log('in:' + this.get('classNames')[1]  + ' - path: ' + path + ' - thisPath = ' + this.get('path'));
-      this.sendAction('updatePath', path)
-    //   updateAction
-    },
-  },
+
   init: function () {
     var val = this.get('jiPrimitive');
     var type = Ember.typeOf(val);
