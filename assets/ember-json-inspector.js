@@ -3290,7 +3290,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
         ["attribute","offset",["concat",[["get","jsonInputOffset",["loc",[null,[8,45],[8,60]]]]]]],
         ["block","if",[["get","jsonError",["loc",[null,[10,14],[10,23]]]]],[],0,null,["loc",[null,[10,8],[18,15]]]],
         ["inline","textarea",[],["value",["subexpr","@mut",[["get","jsontext",["loc",[null,[19,25],[19,33]]]]],[],[]],"layout-fill","","rows","10"],["loc",[null,[19,8],[19,60]]]],
-        ["block","md-button",[],["class","md-raised","action","sampleData1","bubbles",false],1,null,["loc",[null,[21,8],[23,22]]]],
+        ["block","md-button",[],["class","md-raised md-primary","action","sampleData1","bubbles",false],1,null,["loc",[null,[21,8],[23,22]]]],
         ["block","if",[["get","showInspector",["loc",[null,[26,10],[26,23]]]]],[],2,null,["loc",[null,[26,4],[50,12]]]],
         ["content","outlet",["loc",[null,[53,0],[53,10]]]]
       ],
@@ -3718,7 +3718,7 @@ catch(err) {
 if (runningTests) {
   require("ember-json-inspector/tests/test-helper");
 } else {
-  require("ember-json-inspector/app")["default"].create({"name":"ember-json-inspector","version":"0.0.0+78854988"});
+  require("ember-json-inspector/app")["default"].create({"name":"ember-json-inspector","version":"0.0.0+9f263f17"});
 }
 
 /* jshint ignore:end */
