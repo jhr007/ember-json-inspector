@@ -41,7 +41,7 @@ export default Ember.Controller.extend({
   init: function () {
     this.set('jsonError', false);
 
-//    this.sendAction('sampleData1');
+this.send('sampleData1');
   },
 
   jsonObj: Ember.computed('jsontext', function() {
@@ -82,12 +82,19 @@ export default Ember.Controller.extend({
     var showInspector = jsonParseIsValid;
 
     if ( showInspector ) {
-      this.set('jsonInputWidth', 30);
-      this.set('jsonInputOffset', 10);
+      var margin = 10;
+      this.set('jsonInputWidth', 25);
+
+      this.set('jsonInspectorLeftMargin', margin);
+      this.set('jsonInspectorCenterMargin', 10);
+      this.set('jsonInspectorRightMargin', margin);
     }
     else {
+      var margin = 30;
       this.set('jsonInputWidth',40);
-      this.set('jsonInputOffset', 25);
+      this.set('jsonInspectorLeftMargin', margin);
+      // this.set('jsonInspectorCenterMargin', 5);
+      // this.set('jsonInspectorRightMargin', margin);
     }
     return showInspector;
   }),

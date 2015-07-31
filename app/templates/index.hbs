@@ -5,7 +5,7 @@
 
 <div layout="row">
 
-    <div flex="{{jsonInputWidth}}" offset="{{jsonInputOffset}}">
+    <div flex="{{jsonInputWidth}}" offset="{{jsonInspectorLeftMargin}}">
         <h2 class="md-title">JSON Text</h2>
         {{#if jsonError}}
             <div class="md-warn">
@@ -16,7 +16,8 @@
             </div>
               </div>
         {{/if}}
-        {{textarea value=jsontext layout-fill="" rows="10"}}
+
+        {{textarea value=jsontext layout-fill="" rows="10" class='jsonInput'}}
 
         {{#md-button class="md-raised md-primary" action="sampleData1" bubbles=false}}
             Sample Data
@@ -25,24 +26,29 @@
 
     {{#if showInspector}}
 
-    <div flex="5"></div>
+    <div flex="{{jsonInspectorCenterMargin}}"></div>
 
     <div class="ji-frame" layout="column" flex>
         {{!-- {{#liquid-if showInspector class='showInspector'}} --}}
 
         <h2 class="md-title">JSON Inspector</h2>
-        <div layout-fill="">
-            {{#sticky-container}}
-                {{input value=propertyPath layout-fill=""}}
-            {{/sticky-container}}
-        </div>
-        <div class="md-whiteframe-z2"  layout-padding>
+
+        {{#sticky-container class="test"}}
+        
+            <div class="propertyPath" >
+                <div class="md-whiteframe-z2" >
+                    {{input value=propertyPath}}
+                </div>
+            </div>
+        {{/sticky-container}}
+
+        <div class="md-whiteframe-z2" layout-padding>
             {{json-inspector inspectThis=inspectThisObject updatePath="updatePath"}}
         </div>
         {{!-- {{/liquid-if }}  {{!#if false}} --}}
     </div>
 
-    <div flex="25">
+    <div flex="{{jsonInspectorRightMargin}}">
         
     </div>
 

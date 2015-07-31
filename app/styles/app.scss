@@ -91,20 +91,34 @@ $valueBorderColor: rgba(  0, 90,138,.5);
    min-height: 0px !important;
 }
 
+
+.jsonInput {
+  max-width: 100%;
+}
+
+/*
+   STICKY BOX
+*/
 .sticky {
   z-index:999;
 }
 
 .is-sticky > .sticky {
-  width: 45%;
+  width: 43.75%;
   background-color: white;
   padding: 0px;
 }
 
-$primary: 'light-blue';
-@import "ember-material-design";
-
-
-.showInspector.liquid-container.liquid-animating {
-  min-width: 100% !important ;
+.propertyPath {
+  padding: 8px;
 }
+.propertyPath input {
+  width: 97%;
+  margin: 8px;
+}
+
+
+
+$primary: 'light-blue';
+
+@import "ember-material-design";
