@@ -10,8 +10,8 @@
         {{#if jsonError}}
             <div class="md-warn">
                 Bad JSON
-          
-            <div layout-padding="" >                
+
+            <div layout-padding="" >
                 {{jsonErrorMessage}}
             </div>
               </div>
@@ -28,13 +28,13 @@
 
     <div flex="{{jsonInspectorCenterMargin}}"></div>
 
-    <div class="ji-frame" layout="column" flex>
+    <div class="ji-panel" layout="column" flex>
         {{!-- {{#liquid-if showInspector class='showInspector'}} --}}
 
         <h2 class="md-title">JSON Inspector</h2>
 
-        {{#sticky-container class="test"}}
-        
+        {{#sticky-container options=stickyOptions}}
+
             <div class="propertyPath" >
                 <div class="md-whiteframe-z2" >
                     {{input value=propertyPath}}
@@ -49,7 +49,7 @@
     </div>
 
     <div flex="{{jsonInspectorRightMargin}}">
-        
+
     </div>
 
 

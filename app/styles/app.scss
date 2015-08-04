@@ -102,15 +102,9 @@ $valueBorderColor: rgba(  0, 90,138,.5);
 .sticky {
   z-index:999;
 }
-
-.is-sticky > .sticky {
-  width: 43.75%;
-  background-color: white;
-  padding: 0px;
-}
-
 .propertyPath {
   padding: 8px;
+  background-color: white;
 }
 .propertyPath input {
   width: 97%;

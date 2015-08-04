@@ -40,8 +40,12 @@ export default Ember.Controller.extend({
 
   init: function () {
     this.set('jsonError', false);
+    this.send('sampleData1');
+    this.set('stickyOptions', {
+      getWidthFrom: '.ji-panel',
+      responsiveWidth: true
 
-this.send('sampleData1');
+    });
   },
 
   jsonObj: Ember.computed('jsontext', function() {
