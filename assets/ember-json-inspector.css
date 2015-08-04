@@ -52,13 +52,9 @@ h2.md-title, h2.md-toolbar-tools {
 .sticky {
   z-index: 999; }
 
-.is-sticky > .sticky {
-  width: 43.75%;
-  background-color: white;
-  padding: 0px; }
-
 .propertyPath {
-  padding: 8px; }
+  padding: 8px;
+  background-color: white; }
 
 .propertyPath input {
   width: 97%;

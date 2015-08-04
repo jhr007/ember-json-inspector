@@ -1451,8 +1451,12 @@ define('ember-json-inspector/controllers/index', ['exports', 'ember'], function 
 
     init: function init() {
       this.set('jsonError', false);
-
       this.send('sampleData1');
+      this.set('stickyOptions', {
+        getWidthFrom: '.ji-panel',
+        responsiveWidth: true
+
+      });
     },
 
     jsonObj: Ember['default'].computed('jsontext', function () {
@@ -1517,6 +1521,16 @@ define('ember-json-inspector/controllers/object', ['exports', 'ember'], function
 	'use strict';
 
 	exports['default'] = Ember['default'].Controller;
+
+});
+define('ember-json-inspector/ember-cli-sticky/tests/modules/ember-cli-sticky/components/sticky-container.jshint', function () {
+
+  'use strict';
+
+  module('JSHint - modules/ember-cli-sticky/components');
+  test('modules/ember-cli-sticky/components/sticky-container.js should pass jshint', function () {
+    ok(true, 'modules/ember-cli-sticky/components/sticky-container.js should pass jshint.');
+  });
 
 });
 define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-backdrop.jshint', function () {
@@ -2996,11 +3010,11 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
           dom.appendChild(el0, el1);
           var el1 = dom.createElement("div");
           dom.setAttribute(el1,"class","md-warn");
-          var el2 = dom.createTextNode("\n                Bad JSON\n          \n            ");
+          var el2 = dom.createTextNode("\n                Bad JSON\n\n            ");
           dom.appendChild(el1, el2);
           var el2 = dom.createElement("div");
           dom.setAttribute(el2,"layout-padding","");
-          var el3 = dom.createTextNode("                \n                ");
+          var el3 = dom.createTextNode("\n                ");
           dom.appendChild(el2, el3);
           var el3 = dom.createComment("");
           dom.appendChild(el2, el3);
@@ -3083,7 +3097,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
           hasRendered: false,
           buildFragment: function buildFragment(dom) {
             var el0 = dom.createDocumentFragment();
-            var el1 = dom.createTextNode("        \n            ");
+            var el1 = dom.createTextNode("\n            ");
             dom.appendChild(el0, el1);
             var el1 = dom.createElement("div");
             dom.setAttribute(el1,"class","propertyPath");
@@ -3145,7 +3159,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
           var el1 = dom.createTextNode("\n\n    ");
           dom.appendChild(el0, el1);
           var el1 = dom.createElement("div");
-          dom.setAttribute(el1,"class","ji-frame");
+          dom.setAttribute(el1,"class","ji-panel");
           dom.setAttribute(el1,"layout","column");
           dom.setAttribute(el1,"flex","");
           var el2 = dom.createTextNode("\n");
@@ -3181,7 +3195,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
           var el1 = dom.createTextNode("\n\n    ");
           dom.appendChild(el0, el1);
           var el1 = dom.createElement("div");
-          var el2 = dom.createTextNode("\n        \n    ");
+          var el2 = dom.createTextNode("\n\n    ");
           dom.appendChild(el1, el2);
           dom.appendChild(el0, el1);
           var el1 = dom.createTextNode("\n\n\n    ");
@@ -3201,7 +3215,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
         },
         statements: [
           ["attribute","flex",["concat",[["get","jsonInspectorCenterMargin",["loc",[null,[29,17],[29,42]]]]]]],
-          ["block","sticky-container",[],["class","test"],0,null,["loc",[null,[36,8],[43,29]]]],
+          ["block","sticky-container",[],["options",["subexpr","@mut",[["get","stickyOptions",["loc",[null,[36,36],[36,49]]]]],[],[]]],0,null,["loc",[null,[36,8],[43,29]]]],
           ["inline","json-inspector",[],["inspectThis",["subexpr","@mut",[["get","inspectThisObject",["loc",[null,[46,41],[46,58]]]]],[],[]],"updatePath","updatePath"],["loc",[null,[46,12],[46,84]]]],
           ["attribute","flex",["concat",[["get","jsonInspectorRightMargin",["loc",[null,[51,17],[51,41]]]]]]]
         ],
@@ -3374,7 +3388,7 @@ define('ember-json-inspector/tests/controllers/index.jshint', function () {
 
   module('JSHint - controllers');
   test('controllers/index.js should pass jshint', function() { 
-    ok(false, 'controllers/index.js should pass jshint.\ncontrollers/index.js: line 93, col 18, \'margin\' is already defined.\n\n1 error'); 
+    ok(false, 'controllers/index.js should pass jshint.\ncontrollers/index.js: line 97, col 18, \'margin\' is already defined.\n\n1 error'); 
   });
 
 });
@@ -3736,7 +3750,7 @@ catch(err) {
 if (runningTests) {
   require("ember-json-inspector/tests/test-helper");
 } else {
-  require("ember-json-inspector/app")["default"].create({"name":"ember-json-inspector","version":"0.0.0+6b94cf30"});
+  require("ember-json-inspector/app")["default"].create({"name":"ember-json-inspector","version":"0.0.0+a2ce558e"});
 }
 
 /* jshint ignore:end */
