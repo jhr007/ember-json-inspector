@@ -85595,9 +85595,18 @@ define('ember-cli-sticky/components/sticky-container', ['exports', 'ember'], fun
     tagName: 'div',
     classNames: 'sticky',
     topSpacing: 0,
+    defaultOptions: Ember['default'].computed('topSpacing', function () {
+      return {
+        topSpacing: this.get('topSpacing')
+      };
+    }),
+
+    mergedOptions: Ember['default'].computed('options', function () {
+      return Ember['default'].merge(this.get('defaultOptions'), this.get('options'));
+    }),
 
     setupSticky: Ember['default'].on('didInsertElement', function () {
-      this.$().sticky({ topSpacing: this.get('topSpacing') });
+      this.$().sticky(this.get('mergedOptions'));
     }),
 
     teardownSticky: Ember['default'].on('willDestroyElement', function () {

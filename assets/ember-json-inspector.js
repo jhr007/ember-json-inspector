@@ -3434,7 +3434,7 @@ catch(err) {
 if (runningTests) {
   require("ember-json-inspector/tests/test-helper");
 } else {
-  require("ember-json-inspector/app")["default"].create({"name":"ember-json-inspector","version":"0.0.0+891a3ba2"});
+  require("ember-json-inspector/app")["default"].create({"name":"ember-json-inspector","version":"0.0.0+644483e4"});
 }
 
 /* jshint ignore:end */
