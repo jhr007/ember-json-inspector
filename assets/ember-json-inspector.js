@@ -1,3 +1,4 @@
+"use strict";
 /* jshint ignore:start */
 
 /* jshint ignore:end */
@@ -8,7 +9,7 @@ define('ember-json-inspector/1pods/components/json-inspector-array/component', [
 
   exports['default'] = Ember['default'].Component.extend(jiMixin['default'], {
     attributeBindings: ['layoutFill:layout-fill'],
-    layoutFill: '',
+    layoutFill: "",
 
     actions: {
       toggleExpanded: function toggleExpanded() {
@@ -53,7 +54,7 @@ define('ember-json-inspector/1pods/components/json-inspector-array/template', ['
       var child0 = (function() {
         return {
           meta: {
-            "revision": "Ember@1.13.3",
+            "revision": "Ember@1.13.5",
             "loc": {
               "source": null,
               "start": {
@@ -95,7 +96,7 @@ define('ember-json-inspector/1pods/components/json-inspector-array/template', ['
       var child1 = (function() {
         return {
           meta: {
-            "revision": "Ember@1.13.3",
+            "revision": "Ember@1.13.5",
             "loc": {
               "source": null,
               "start": {
@@ -136,7 +137,7 @@ define('ember-json-inspector/1pods/components/json-inspector-array/template', ['
       }());
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -183,7 +184,7 @@ define('ember-json-inspector/1pods/components/json-inspector-array/template', ['
       var child0 = (function() {
         return {
           meta: {
-            "revision": "Ember@1.13.3",
+            "revision": "Ember@1.13.5",
             "loc": {
               "source": null,
               "start": {
@@ -233,7 +234,7 @@ define('ember-json-inspector/1pods/components/json-inspector-array/template', ['
       }());
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -275,7 +276,7 @@ define('ember-json-inspector/1pods/components/json-inspector-array/template', ['
     var child2 = (function() {
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -309,7 +310,7 @@ define('ember-json-inspector/1pods/components/json-inspector-array/template', ['
     var child3 = (function() {
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -342,7 +343,7 @@ define('ember-json-inspector/1pods/components/json-inspector-array/template', ['
     }());
     return {
       meta: {
-        "revision": "Ember@1.13.3",
+        "revision": "Ember@1.13.5",
         "loc": {
           "source": null,
           "start": {
@@ -488,7 +489,7 @@ define('ember-json-inspector/1pods/components/json-inspector-object/template', [
       var child0 = (function() {
         return {
           meta: {
-            "revision": "Ember@1.13.3",
+            "revision": "Ember@1.13.5",
             "loc": {
               "source": null,
               "start": {
@@ -530,7 +531,7 @@ define('ember-json-inspector/1pods/components/json-inspector-object/template', [
       var child1 = (function() {
         return {
           meta: {
-            "revision": "Ember@1.13.3",
+            "revision": "Ember@1.13.5",
             "loc": {
               "source": null,
               "start": {
@@ -571,7 +572,7 @@ define('ember-json-inspector/1pods/components/json-inspector-object/template', [
       }());
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -618,7 +619,7 @@ define('ember-json-inspector/1pods/components/json-inspector-object/template', [
       var child0 = (function() {
         return {
           meta: {
-            "revision": "Ember@1.13.3",
+            "revision": "Ember@1.13.5",
             "loc": {
               "source": null,
               "start": {
@@ -694,7 +695,7 @@ define('ember-json-inspector/1pods/components/json-inspector-object/template', [
       }());
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -735,7 +736,7 @@ define('ember-json-inspector/1pods/components/json-inspector-object/template', [
     var child2 = (function() {
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -769,7 +770,7 @@ define('ember-json-inspector/1pods/components/json-inspector-object/template', [
     var child3 = (function() {
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -802,7 +803,7 @@ define('ember-json-inspector/1pods/components/json-inspector-object/template', [
     }());
     return {
       meta: {
-        "revision": "Ember@1.13.3",
+        "revision": "Ember@1.13.5",
         "loc": {
           "source": null,
           "start": {
@@ -903,7 +904,7 @@ define('ember-json-inspector/1pods/components/json-inspector-primitive/component
         val = '"' + val + '"';
       }
       if (type === 'null') {
-        val = 'null';
+        val = "null";
       }
 
       //add command if not last
@@ -925,7 +926,7 @@ define('ember-json-inspector/1pods/components/json-inspector-primitive/template'
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       meta: {
-        "revision": "Ember@1.13.3",
+        "revision": "Ember@1.13.5",
         "loc": {
           "source": null,
           "start": {
@@ -1020,7 +1021,7 @@ define('ember-json-inspector/1pods/components/json-inspector/template', ['export
     var child0 = (function() {
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -1062,7 +1063,7 @@ define('ember-json-inspector/1pods/components/json-inspector/template', ['export
     var child1 = (function() {
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -1104,7 +1105,7 @@ define('ember-json-inspector/1pods/components/json-inspector/template', ['export
     var child2 = (function() {
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -1145,7 +1146,7 @@ define('ember-json-inspector/1pods/components/json-inspector/template', ['export
     }());
     return {
       meta: {
-        "revision": "Ember@1.13.3",
+        "revision": "Ember@1.13.5",
         "loc": {
           "source": null,
           "start": {
@@ -1197,6 +1198,15 @@ define('ember-json-inspector/1pods/components/json-inspector/template', ['export
   }()));
 
 });
+define('ember-json-inspector/acceptance-tests/main', ['exports', 'ember-cli-sri/acceptance-tests/main'], function (exports, main) {
+
+	'use strict';
+
+
+
+	exports['default'] = main['default'];
+
+});
 define('ember-json-inspector/app', ['exports', 'ember', 'ember/resolver', 'ember/load-initializers', 'ember-json-inspector/config/environment'], function (exports, Ember, Resolver, loadInitializers, config) {
 
   'use strict';
@@ -1223,7 +1233,7 @@ define('ember-json-inspector/components/material-design-icon', ['exports', 'embe
 
 
 
-	exports.default = material_design_icon.default;
+	exports['default'] = material_design_icon['default'];
 
 });
 define('ember-json-inspector/components/md-backdrop', ['exports', 'ember-material-design/components/md-backdrop'], function (exports, mdBackdrop) {
@@ -1523,346 +1533,6 @@ define('ember-json-inspector/controllers/object', ['exports', 'ember'], function
 	exports['default'] = Ember['default'].Controller;
 
 });
-define('ember-json-inspector/ember-cli-sticky/tests/modules/ember-cli-sticky/components/sticky-container.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-cli-sticky/components');
-  test('modules/ember-cli-sticky/components/sticky-container.js should pass jshint', function () {
-    ok(true, 'modules/ember-cli-sticky/components/sticky-container.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-backdrop.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-backdrop.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-backdrop.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-button-link.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-button-link.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-button-link.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-button.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-button.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-button.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-checkbox.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-checkbox.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-checkbox.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-icon.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-icon.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-icon.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-input-container.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-input-container.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-input-container.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-input.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-input.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-input.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-list-item.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-list-item.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-list-item.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-list.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-list.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-list.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-progress-circular.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-progress-circular.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-progress-circular.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-progress-linear.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-progress-linear.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-progress-linear.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-radio-button.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-radio-button.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-radio-button.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-select.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-select.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-select.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-sidenav.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-sidenav.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-sidenav.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-slider.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-slider.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-slider.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-tab-content.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-tab-content.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-tab-content.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-tab-item.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-tab-item.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-tab-item.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-tab.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-tab.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-tab.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-tabs-content-wrapper.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-tabs-content-wrapper.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-tabs-content-wrapper.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-tabs-wrapper.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-tabs-wrapper.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-tabs-wrapper.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-tabs.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-tabs.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-tabs.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-textarea.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-textarea.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-textarea.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-toast.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-toast.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-toast.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-toolbar.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-toolbar.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-toolbar.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/components/md-tooltip.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/components');
-  test('modules/ember-material-design/components/md-tooltip.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/components/md-tooltip.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/mixins/events.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/mixins');
-  test('modules/ember-material-design/mixins/events.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/mixins/events.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/mixins/gesture-events.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/mixins');
-  test('modules/ember-material-design/mixins/gesture-events.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/mixins/gesture-events.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/mixins/has-flex.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/mixins');
-  test('modules/ember-material-design/mixins/has-flex.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/mixins/has-flex.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/mixins/has-layout.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/mixins');
-  test('modules/ember-material-design/mixins/has-layout.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/mixins/has-layout.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/mixins/layout-rules.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/mixins');
-  test('modules/ember-material-design/mixins/layout-rules.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/mixins/layout-rules.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/mixins/ripples.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/mixins');
-  test('modules/ember-material-design/mixins/ripples.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/mixins/ripples.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/models/toast.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/models');
-  test('modules/ember-material-design/models/toast.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/models/toast.js should pass jshint.');
-  });
-
-});
-define('ember-json-inspector/ember-material-design/tests/modules/ember-material-design/services/toasts.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - modules/ember-material-design/services');
-  test('modules/ember-material-design/services/toasts.js should pass jshint', function () {
-    ok(true, 'modules/ember-material-design/services/toasts.js should pass jshint.');
-  });
-
-});
 define('ember-json-inspector/initializers/export-application-global', ['exports', 'ember', 'ember-json-inspector/config/environment'], function (exports, Ember, config) {
 
   'use strict';
@@ -1870,10 +1540,26 @@ define('ember-json-inspector/initializers/export-application-global', ['exports'
   exports.initialize = initialize;
 
   function initialize(container, application) {
-    var classifiedName = Ember['default'].String.classify(config['default'].modulePrefix);
+    if (config['default'].exportApplicationGlobal !== false) {
+      var value = config['default'].exportApplicationGlobal;
+      var globalName;
 
-    if (config['default'].exportApplicationGlobal && !window[classifiedName]) {
-      window[classifiedName] = application;
+      if (typeof value === 'string') {
+        globalName = value;
+      } else {
+        globalName = Ember['default'].String.classify(config['default'].modulePrefix);
+      }
+
+      if (!window[globalName]) {
+        window[globalName] = application;
+
+        application.reopen({
+          willDestroy: function willDestroy() {
+            this._super.apply(this, arguments);
+            delete window[globalName];
+          }
+        });
+      }
     }
   }
 
@@ -1892,7 +1578,7 @@ define('ember-json-inspector/initializers/md-layout-views', ['exports', 'ember',
 
   exports.initialize = initialize;
 
-  function initialize() {
+  function initialize() /* container, application */{
     // We want to inject the flex and layout parameters to every element
     // so we don't need to customize each view or component to add it
     Ember['default'].View.reopen(HasFlex['default'], HasLayout['default'], {
@@ -1904,7 +1590,6 @@ define('ember-json-inspector/initializers/md-layout-views', ['exports', 'ember',
     name: 'md-layout-views',
     initialize: initialize
   };
-  /* container, application */
 
 });
 define('ember-json-inspector/initializers/md-link-to', ['exports', 'ember', 'ember-material-design/mixins/ripples'], function (exports, Ember, RipplesMixin) {
@@ -1913,7 +1598,7 @@ define('ember-json-inspector/initializers/md-link-to', ['exports', 'ember', 'emb
 
     exports.initialize = initialize;
 
-    function initialize() {
+    function initialize() /* container, application */{
         // application.inject('route', 'foo', 'service:foo');
 
         // by default we will insert the ripples mixin to links,
@@ -1938,7 +1623,6 @@ define('ember-json-inspector/initializers/md-link-to', ['exports', 'ember', 'emb
         name: 'md-link-to',
         initialize: initialize
     };
-    /* container, application */
 
 });
 define('ember-json-inspector/initializers/reopentextarea', ['exports', 'ember'], function (exports, Ember) {
@@ -1947,7 +1631,7 @@ define('ember-json-inspector/initializers/reopentextarea', ['exports', 'ember'],
 
   exports.initialize = initialize;
 
-  function initialize() {
+  function initialize() /* container, application */{
     // application.inject('route', 'foo', 'service:foo');
     Ember['default'].TextArea.reopen({
       attributeBindings: ['layout-fill']
@@ -1961,7 +1645,6 @@ define('ember-json-inspector/initializers/reopentextarea', ['exports', 'ember'],
     name: 'reopentextarea',
     initialize: initialize
   };
-  /* container, application */
 
 });
 define('ember-json-inspector/instance-initializers/app-version', ['exports', 'ember-json-inspector/config/environment', 'ember'], function (exports, config, Ember) {
@@ -2003,7 +1686,7 @@ define('ember-json-inspector/models/toast', ['exports', 'ember-material-design/m
 
 
 
-	exports.default = toast.default;
+	exports['default'] = toast['default'];
 
 });
 define('ember-json-inspector/router', ['exports', 'ember', 'ember-json-inspector/config/environment'], function (exports, Ember, config) {
@@ -2035,12 +1718,13 @@ define('ember-json-inspector/services/constants', ['exports', 'ember'], function
         snifferService: Ember['default'].inject.service('sniffer'),
 
         webkit: Ember['default'].computed('', function () {
-            return /webkit/i.test(this.get('snifferService.vendorPrefix'));
+            return (/webkit/i.test(this.get('snifferService.vendorPrefix'))
+            );
         }),
 
         vendorProperty: function vendorProperty(name) {
             var prefix = this.get('snifferService.vendorPrefix').toLowerCase();
-            return this.get('webkit') ? '-webkit-' + name.charAt(0) + '' + name.substring(1) : name;
+            return this.get('webkit') ? '-webkit-' + name.charAt(0) + name.substring(1) : name;
         },
 
         MEDIA: {
@@ -2110,7 +1794,7 @@ define('ember-json-inspector/services/icon', ['exports', 'ember', 'ic-ajax'], fu
 
     // inject the namespace if not available...
     if (!el.attr('xmlns')) {
-      el.attr('xmlns', 'http://www.w3.org/2000/svg');
+      el.attr('xmlns', "http://www.w3.org/2000/svg");
     }
 
     this.element = el;
@@ -2848,7 +2532,7 @@ define('ember-json-inspector/services/toasts', ['exports', 'ember-material-desig
 
 
 
-	exports.default = toasts.default;
+	exports['default'] = toasts['default'];
 
 });
 define('ember-json-inspector/services/utility', ['exports', 'ember'], function (exports, Ember) {
@@ -2892,7 +2576,7 @@ define('ember-json-inspector/templates/application', ['exports'], function (expo
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       meta: {
-        "revision": "Ember@1.13.3",
+        "revision": "Ember@1.13.5",
         "loc": {
           "source": null,
           "start": {
@@ -2939,7 +2623,7 @@ define('ember-json-inspector/templates/components/material-design-icon', ['expor
   exports['default'] = Ember.HTMLBars.template((function() {
     return {
       meta: {
-        "revision": "Ember@1.13.3",
+        "revision": "Ember@1.13.5",
         "loc": {
           "source": null,
           "start": {
@@ -2987,7 +2671,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
     var child0 = (function() {
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -3043,7 +2727,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
     var child1 = (function() {
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -3078,7 +2762,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
       var child0 = (function() {
         return {
           meta: {
-            "revision": "Ember@1.13.3",
+            "revision": "Ember@1.13.5",
             "loc": {
               "source": null,
               "start": {
@@ -3133,7 +2817,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
       }());
       return {
         meta: {
-          "revision": "Ember@1.13.3",
+          "revision": "Ember@1.13.5",
           "loc": {
             "source": null,
             "start": {
@@ -3225,7 +2909,7 @@ define('ember-json-inspector/templates/index', ['exports'], function (exports) {
     }());
     return {
       meta: {
-        "revision": "Ember@1.13.3",
+        "revision": "Ember@1.13.5",
         "loc": {
           "source": null,
           "start": {
@@ -3642,15 +3326,15 @@ define('ember-json-inspector/tests/unit/1pods/index/route-test', ['ember-qunit']
 
   'use strict';
 
-  ember_qunit.moduleFor('route:index', 'Unit | Route | index', {});
+  ember_qunit.moduleFor('route:index', 'Unit | Route | index', {
+    // Specify the other units that are required for this test.
+    // needs: ['controller:foo']
+  });
 
   ember_qunit.test('it exists', function (assert) {
     var route = this.subject();
     assert.ok(route);
   });
-
-  // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
 
 });
 define('ember-json-inspector/tests/unit/1pods/index/route-test.jshint', function () {
@@ -3750,7 +3434,7 @@ catch(err) {
 if (runningTests) {
   require("ember-json-inspector/tests/test-helper");
 } else {
-  require("ember-json-inspector/app")["default"].create({"name":"ember-json-inspector","version":"0.0.0+a2ce558e"});
+  require("ember-json-inspector/app")["default"].create({"name":"ember-json-inspector","version":"0.0.0+891a3ba2"});
 }
 
 /* jshint ignore:end */
