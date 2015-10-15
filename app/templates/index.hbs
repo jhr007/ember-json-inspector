@@ -5,7 +5,7 @@
 
 <div layout="row">
 
-    <div flex="{{jsonInputWidth}}" offset="{{jsonInspectorLeftMargin}}">
+    <div flex="{{jsonInputWidth}}" offset="{{jsonInspectorLeftMargin}}" {{!-- class="md-whiteframe-z1" --}}>
         <h2 class="md-title">JSON Text</h2>
         {{#if jsonError}}
             <div class="md-warn">
@@ -36,7 +36,7 @@
         {{#sticky-container options=stickyOptions}}
 
             <div class="propertyPath" >
-                <div class="md-whiteframe-z2" >
+                <div class="md-whiteframe-z4" >
                     {{input value=propertyPath}}
                 </div>
             </div>
