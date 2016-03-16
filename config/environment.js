@@ -2,8 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'ember-json-inspector',
-    podModulePrefix: 'ember-json-inspector/1pods',
+    modulePrefix: 'ember-json-inspector-orig',
+    podModulePrefix: 'ember-json-inspector-orig/1pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
